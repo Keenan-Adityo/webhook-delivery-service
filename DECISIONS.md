@@ -1,5 +1,7 @@
 # DECISIONS.md
 
+![Alt text](Flowchart.png)
+
 ## 1. Delivery semantics: at-least-once
 
 For delivery semantics I've chosen at-least-once to make sure of the events will not be lost. the trade-offs will be data duplication, and to mitigate this risk the data also given event_id as the idempotency key.
