@@ -224,8 +224,3 @@ rm webhook.db   # deletes all events and subscriptions
 | `GET /subscriptions` | List subscriptions |
 | `GET /healthz` | Liveness + pending/delivered/failed counters |
 
-## Design notes
-
-Delivery semantics, retry, outages, ordering and crash safety are documented in
-[`DECISIONS.md`](DECISIONS.md); scope and the locked design decisions are in
-[`AGENTS.md`](AGENTS.md) and the PRD.
