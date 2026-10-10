@@ -18,6 +18,7 @@ Under normal conditions, picking the oldest pending events first results in a ro
 
 
 ## What to do if have more time
+*   **Adding more test** 
 
 Given more time and if need to support larger scale of user, I would prioritize the following architectural changes:
 
