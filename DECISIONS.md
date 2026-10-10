@@ -12,7 +12,7 @@ Retry behavior uses an exponential backoff mechanism with jitter for its retries
 
 The system relies on a shared pool of eight workers that process pending deliveries by grabbing the oldest ones first. If a delivery fails, it is simply rescheduled with a future retry time (next_attempt_at). This ensures that no worker ever gets stuck waiting on an unresponsive endpoint, meaning even a six-hour outage consumes zero worker resources between attempts. To prevent a single slow customer from monopolizing the system, the database query strictly limits each customer to a maximum of two active tasks at a time, ensuring fair access to the worker pool.
 
-## Ordering: no ordering guarantee
+## 4. Ordering: no ordering guarantee
 
 Under normal conditions, picking the oldest pending events first results in a roughly chronological delivery. However, because the system processes events concurrently and reschedules failed ones, the final delivery order will inevitably become mixed up. To solve this, every payload includes an event_id, a created_at timestamp, and a per-customer sequence number. This empowers the receiving end (the consumer) to safely deduplicate and reorder the events themselves.
 
